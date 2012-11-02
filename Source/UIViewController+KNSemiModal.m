@@ -63,14 +63,14 @@ static const uint kDismissButtonTag = 12;
 -(CAAnimationGroup*)animationGroupForward:(BOOL)_forward {
   // Create animation keys, forwards and backwards
   CATransform3D t1 = CATransform3DIdentity;
-  t1.m34 = 1.0/-900;
-  t1 = CATransform3DScale(t1, 0.95, 0.95, 1);
-  t1 = CATransform3DRotate(t1, 15.0f*M_PI/180.0f, 1, 0, 0);
+  t1.m34 = (CGFloat)1.0f/-900.0f;
+  t1 = CATransform3DScale(t1, 0.95f, 0.95f, 1.0f);
+  t1 = CATransform3DRotate(t1, (CGFloat)(15.0f*M_PI/180.0f), 1.0f, 0.0f, 0.0f);
 
   CATransform3D t2 = CATransform3DIdentity;
   t2.m34 = t1.m34;
-  t2 = CATransform3DTranslate(t2, 0, [self parentTarget].frame.size.height*-0.08, 0);
-  t2 = CATransform3DScale(t2, 0.8, 0.8, 1);
+  t2 = CATransform3DTranslate(t2, 0.0f, [self parentTarget].frame.size.height*-0.08f, 0.0f);
+  t2 = CATransform3DScale(t2, 0.8f, 0.8f, 1.0f);
 
   CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
   animation.toValue = [NSValue valueWithCATransform3D:t1];
